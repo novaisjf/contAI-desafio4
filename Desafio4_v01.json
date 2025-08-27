@@ -1,0 +1,138 @@
+{
+  "name": "Automação VR-VA Mensal",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "value": "0 8 25 * *"
+            }
+          ]
+        }
+      },
+      "id": "1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{$env.BASE_URL}}/ATIVOS.xlsx",
+        "options": {}
+      },
+      "id": "2b3c4d5e-6f7g-8h9i-0j1k-2l3m4n5o6p7q",
+      "name": "Carregar ATIVOS",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [460, 180],
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "file-server-auth",
+          "name": "File Server Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{$env.BASE_URL}}/DESLIGADOS.xlsx",
+        "options": {}
+      },
+      "id": "3c4d5e6f-7g8h-9i0j-1k2l-3m4n5o6p7q8r",
+      "name": "Carregar DESLIGADOS",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [460, 240]
+    },
+    {
+      "parameters": {
+        "url": "={{$env.BASE_URL}}/AFASTAMENTOS.xlsx",
+        "options": {}
+      },
+      "id": "4d5e6f7g-8h9i-0j1k-2l3m-4n5o6p7q8r9s",
+      "name": "Carregar AFASTAMENTOS",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{$env.BASE_URL}}/FERIAS.xlsx",
+        "options": {}
+      },
+      "id": "5e6f7g8h-9i0j-1k2l-3m4n-5o6p7q8r9s0t",
+      "name": "Carregar FERIAS",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [460, 360]
+    },
+    {
+      "parameters": {
+        "url": "={{$env.BASE_URL}}/ADMISSAO-ABRIL.xlsx",
+        "options": {}
+      },
+      "id": "6f7g8h9i-0j1k-2l3m-4n5o-6p7q8r9s0t1u",
+      "name": "Carregar ADMISSAO",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [460, 420]
+    },
+    {
+      "parameters": {
+        "url": "={{$env.BASE_URL}}/ESTAGIO.xlsx",
+        "options": {}
+      },
+      "id": "7g8h9i0j-1k2l-3m4n-5o6p-7q8r9s0t1u2v",
+      "name": "Carregar ESTAGIO",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [460, 480]
+    },
+    {
+      "parameters": {
+        "url": "={{$env.BASE_URL}}/EXTERIOR.xlsx",
+        "options": {}
+      },
+      "id": "8h9i0j1k-2l3m-4n5o-6p7q-8r9s0t1u2v3w",
+      "name": "Carregar EXTERIOR",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [460, 540]
+    },
+    {
+      "parameters": {
+        "url": "={{$env.BASE_URL}}/Base-dias-uteis.xlsx",
+        "options": {}
+      },
+      "id": "9i0j1k2l-3m4n-5o6p-7q8r-9s0t1u2v3w4x",
+      "name": "Carregar Base Dias Úteis",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [460, 600]
+    },
+    {
+      "parameters": {
+        "url": "={{$env.BASE_URL}}/Base-sindicato-x-valor.xlsx",
+        "options": {}
+      },
+      "id": "0j1k2l3m-4n5o-6p7q-8r9s-0t1u2v3w4x5y",
+      "name": "Carregar Base Sindicato Valor",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [460, 660]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalizar colunas e adicionar source\nconst items = $input.all();\nconst processedItems = [];\n\n// Mapear node names para sources\nconst sourceMap = {\n  'Carregar ATIVOS': 'ativos',\n  'Carregar DESLIGADOS': 'desligados',\n  'Carregar AFASTAMENTOS': 'afastamentos',\n  'Carregar FERIAS': 'ferias',\n  'Carregar ADMISSAO': 'admissao',\n  'Carregar ESTAGIO': 'estagio',\n  'Carregar EXTERIOR': 'exterior',\n  'Carregar Base Dias Úteis': 'diasUteis',\n  'Carregar Base Sindicato Valor': 'sindicatoValor'\n};\n\nfor (let item of items) {\n  const data = item.json;\n  const normalizedData = {};\n  const sourceName = sourceMap[item.pairedItem?.item?.node] || 'unknown';\n  \n  // Normalizar nomes das colunas\n  for (let key in data) {\n    if (data.hasOwnProperty(key)) {\n      const normalizedKey = key.trim().toUpperCase();\n      normalizedData[normalizedKey] = data[key];\n    }\n  }\n  \n  processedItems.push({\n    json: {\n      ...normalizedData,\n      _source: sourceName\n    }\n  });\n}\n\nreturn processedItems;"
+      },
+      "id": "1k2l3m4n-5o6p-7q8r-9s0t-1u2v3w4x5y6z",
+      "name": "Normalizar Colunas",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Identificar ma
