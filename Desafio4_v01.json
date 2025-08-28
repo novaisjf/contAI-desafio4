@@ -1,5 +1,5 @@
 {
-  "name": "Automação VR-VA Mensal",
+  "name": "My workflow 6",
   "nodes": [
     {
       "parameters": {
@@ -7,132 +7,581 @@
           "interval": [
             {
               "field": "cronExpression",
-              "value": "0 8 25 * *"
+              "expression": "0 8 25 * *"
             }
           ]
         }
       },
-      "id": "1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p",
+      "id": "d1911fc8-49eb-4bb3-9148-ebe0c9a2073b",
       "name": "Schedule Trigger",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.1,
-      "position": [240, 300]
+      "position": [
+        -560,
+        128
+      ]
     },
     {
       "parameters": {
-        "url": "={{$env.BASE_URL}}/ATIVOS.xlsx",
+        "url": "=https://docs.google.com/spreadsheets/d/1OFwFBQQaDyt7ccGgtS1wNym_R7VDoomi/edit#gid=758913264",
         "options": {}
       },
-      "id": "2b3c4d5e-6f7g-8h9i-0j1k-2l3m4n5o6p7q",
+      "id": "46270658-bd4a-44cc-b547-9c9a2c4b1e96",
       "name": "Carregar ATIVOS",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
-      "position": [460, 180],
-      "credentials": {
-        "httpBasicAuth": {
-          "id": "file-server-auth",
-          "name": "File Server Auth"
-        }
-      }
+      "position": [
+        16,
+        -208
+      ]
     },
     {
       "parameters": {
-        "url": "={{$env.BASE_URL}}/DESLIGADOS.xlsx",
+        "url": "=https://docs.google.com/spreadsheets/d/1D-WrPuY4QiQc1B8WQez_fF2j766jKIRW/edit#gid=758913264",
         "options": {}
       },
-      "id": "3c4d5e6f-7g8h-9i0j-1k2l-3m4n5o6p7q8r",
-      "name": "Carregar DESLIGADOS",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [460, 240]
-    },
-    {
-      "parameters": {
-        "url": "={{$env.BASE_URL}}/AFASTAMENTOS.xlsx",
-        "options": {}
-      },
-      "id": "4d5e6f7g-8h9i-0j1k-2l3m-4n5o6p7q8r9s",
+      "id": "ebd53b94-40d8-4a44-8a6e-986dbe05ff75",
       "name": "Carregar AFASTAMENTOS",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
-      "position": [460, 300]
+      "position": [
+        16,
+        0
+      ]
     },
     {
       "parameters": {
-        "url": "={{$env.BASE_URL}}/FERIAS.xlsx",
+        "url": "=https://docs.google.com/spreadsheets/d/14CZ0AMpUqIGm8T9g-09mBeeCJiybp_la/edit#gid=758913264",
         "options": {}
       },
-      "id": "5e6f7g8h-9i0j-1k2l-3m4n-5o6p7q8r9s0t",
-      "name": "Carregar FERIAS",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [460, 360]
-    },
-    {
-      "parameters": {
-        "url": "={{$env.BASE_URL}}/ADMISSAO-ABRIL.xlsx",
-        "options": {}
-      },
-      "id": "6f7g8h9i-0j1k-2l3m-4n5o-6p7q8r9s0t1u",
+      "id": "4d3d4631-5445-4620-b6b7-64a54399a261",
       "name": "Carregar ADMISSAO",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
-      "position": [460, 420]
+      "position": [
+        -48,
+        176
+      ]
     },
     {
       "parameters": {
-        "url": "={{$env.BASE_URL}}/ESTAGIO.xlsx",
+        "url": "=https://docs.google.com/spreadsheets/d/1q4zzKQPufmGPrgBuYDue8bqjQSYyEWIF/edit#gid=758913264",
         "options": {}
       },
-      "id": "7g8h9i0j-1k2l-3m4n-5o6p-7q8r9s0t1u2v",
-      "name": "Carregar ESTAGIO",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [460, 480]
-    },
-    {
-      "parameters": {
-        "url": "={{$env.BASE_URL}}/EXTERIOR.xlsx",
-        "options": {}
-      },
-      "id": "8h9i0j1k-2l3m-4n5o-6p7q-8r9s0t1u2v3w",
+      "id": "1d216aa2-2ea0-482c-b381-241627b8f89e",
       "name": "Carregar EXTERIOR",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
-      "position": [460, 540]
+      "position": [
+        -32,
+        336
+      ]
     },
     {
       "parameters": {
-        "url": "={{$env.BASE_URL}}/Base-dias-uteis.xlsx",
+        "url": "=https://docs.google.com/spreadsheets/d/1QCJiSMpc81lY5QArLxQ8Ej7kAcJXRmk5/edit#gid=758913264",
         "options": {}
       },
-      "id": "9i0j1k2l-3m4n-5o6p-7q8r-9s0t1u2v3w4x",
+      "id": "050531ce-e2af-45bb-8735-31e221557168",
       "name": "Carregar Base Dias Úteis",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
-      "position": [460, 600]
+      "position": [
+        -32,
+        496
+      ]
     },
     {
       "parameters": {
-        "url": "={{$env.BASE_URL}}/Base-sindicato-x-valor.xlsx",
+        "url": "=https://docs.google.com/spreadsheets/d/128lNu1_3eGdU01nNQIf8I1RJJX06aeb6/edit#gid=758913264",
         "options": {}
       },
-      "id": "0j1k2l3m-4n5o-6p7q-8r9s-0t1u2v3w4x5y",
+      "id": "b150d225-6a38-4815-9cf0-f7693e3874f3",
       "name": "Carregar Base Sindicato Valor",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
-      "position": [460, 660]
+      "position": [
+        -16,
+        624
+      ]
     },
     {
       "parameters": {
         "jsCode": "// Normalizar colunas e adicionar source\nconst items = $input.all();\nconst processedItems = [];\n\n// Mapear node names para sources\nconst sourceMap = {\n  'Carregar ATIVOS': 'ativos',\n  'Carregar DESLIGADOS': 'desligados',\n  'Carregar AFASTAMENTOS': 'afastamentos',\n  'Carregar FERIAS': 'ferias',\n  'Carregar ADMISSAO': 'admissao',\n  'Carregar ESTAGIO': 'estagio',\n  'Carregar EXTERIOR': 'exterior',\n  'Carregar Base Dias Úteis': 'diasUteis',\n  'Carregar Base Sindicato Valor': 'sindicatoValor'\n};\n\nfor (let item of items) {\n  const data = item.json;\n  const normalizedData = {};\n  const sourceName = sourceMap[item.pairedItem?.item?.node] || 'unknown';\n  \n  // Normalizar nomes das colunas\n  for (let key in data) {\n    if (data.hasOwnProperty(key)) {\n      const normalizedKey = key.trim().toUpperCase();\n      normalizedData[normalizedKey] = data[key];\n    }\n  }\n  \n  processedItems.push({\n    json: {\n      ...normalizedData,\n      _source: sourceName\n    }\n  });\n}\n\nreturn processedItems;"
       },
-      "id": "1k2l3m4n-5o6p-7q8r-9s0t-1u2v3w4x5y6z",
+      "id": "8d869662-4ca2-4289-ac23-e904c5280612",
       "name": "Normalizar Colunas",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [680, 400]
+      "position": [
+        224,
+        224
+      ]
     },
     {
       "parameters": {
-        "jsCode": "// Identificar ma
+        "jsCode": "// Identificar matrículas para exclusão\nlet matriculasExcluir = new Set();\nconst items = $input.all();\n\nitems.forEach(item => {\n  const data = item.json;\n  const source = data._source;\n  \n  try {\n    switch(source) {\n      case 'estagio':\n        if (data.MATRICULA) matriculasExcluir.add(data.MATRICULA.toString());\n        break;\n        \n      case 'exterior':\n        if (data.CADASTRO) matriculasExcluir.add(data.CADASTRO.toString());\n        break;\n        \n      case 'afastamentos':\n        if (data.MATRICULA) matriculasExcluir.add(data.MATRICULA.toString());\n        break;\n        \n      case 'ativos':\n        const cargo = (data['TITULO DO CARGO'] || data['TÍTULO DO CARGO'] || '').toString().toUpperCase();\n        if (cargo.includes('DIRETOR') || cargo.includes('APRENDIZ')) {\n          if (data.MATRICULA) matriculasExcluir.add(data.MATRICULA.toString());\n        }\n        break;\n    }\n  } catch (error) {\n    console.log(`Erro processando item do source ${source}:`, error.message);\n  }\n});\n\nconsole.log(`Total de matrículas para exclusão: ${matriculasExcluir.size}`);\n\nreturn [{\n  json: {\n    matriculasExcluir: Array.from(matriculasExcluir),\n    totalExclusoes: matriculasExcluir.size\n  }\n}];"
+      },
+      "id": "df709ba8-6900-48f1-8c0d-da1347474f9e",
+      "name": "Identificar Exclusões",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        448,
+        128
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Filtrar colaboradores ativos elegíveis\nconst allItems = $('Normalizar Colunas').all();\nconst exclusoesData = $input.first().json;\n\n// Extrair apenas colaboradores ativos\nconst colaboradoresAtivos = allItems.filter(item => item.json._source === 'ativos');\n\n// Filtrar excluindo as matrículas identificadas\nconst colaboradoresElegiveis = colaboradoresAtivos.filter(item => {\n  const matricula = item.json.MATRICULA ? item.json.MATRICULA.toString() : null;\n  return matricula && !exclusoesData.matriculasExcluir.includes(matricula);\n});\n\nconsole.log(`Colaboradores ativos: ${colaboradoresAtivos.length}`);\nconsole.log(`Colaboradores elegíveis: ${colaboradoresElegiveis.length}`);\nconsole.log(`Excluídos: ${colaboradoresAtivos.length - colaboradoresElegiveis.length}`);\n\nreturn colaboradoresElegiveis.map(item => ({\n  json: {\n    ...item.json,\n    _source: undefined // Remove source tag\n  }\n}));"
+      },
+      "id": "974f7068-0e39-45df-a6d5-03d21af450dd",
+      "name": "Filtrar Base Principal",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        672,
+        128
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Merge com dados de férias\nconst colaboradores = $input.all();\nconst feriasItems = $('Normalizar Colunas').all().filter(item => item.json._source === 'ferias');\n\nconst colaboradoresComFerias = colaboradores.map(colaboradorItem => {\n  const colaborador = colaboradorItem.json;\n  const matricula = colaborador.MATRICULA ? colaborador.MATRICULA.toString() : null;\n  \n  // Buscar informações de férias\n  const feriaInfo = feriasItems.find(item => {\n    const feriaMatricula = item.json.MATRICULA ? item.json.MATRICULA.toString() : null;\n    return feriaMatricula === matricula;\n  });\n  \n  let diasFerias = 0;\n  if (feriaInfo) {\n    const diasFeriasRaw = feriaInfo.json['DIAS DE FÉRIAS'] || feriaInfo.json['DIAS DE FERIAS'] || feriaInfo.json['DIAS_DE_FERIAS'] || 0;\n    diasFerias = parseInt(diasFeriasRaw) || 0;\n  }\n  \n  return {\n    json: {\n      ...colaborador,\n      DIAS_FERIAS: diasFerias\n    }\n  };\n});\n\nconsole.log(`Colaboradores processados com férias: ${colaboradoresComFerias.length}`);\n\nreturn colaboradoresComFerias;"
+      },
+      "id": "aefc1e28-1a1c-4ed0-b8f5-8e8659725dc1",
+      "name": "Merge com Férias",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        128
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Merge com dados de desligamento\nconst colaboradores = $input.all();\nconst desligadosItems = $('Normalizar Colunas').all().filter(item => item.json._source === 'desligados');\n\nconst colaboradoresComDeslig = colaboradores.map(colaboradorItem => {\n  const colaborador = colaboradorItem.json;\n  const matricula = colaborador.MATRICULA ? colaborador.MATRICULA.toString() : null;\n  \n  // Buscar informações de desligamento\n  const desligInfo = desligadosItems.find(item => {\n    const desligMatricula = item.json.MATRICULA ? item.json.MATRICULA.toString().trim() : null;\n    return desligMatricula === matricula;\n  });\n  \n  let dataDeslig = null;\n  let desligOk = false;\n  \n  if (desligInfo) {\n    // Tentar diferentes formatos de data\n    const dataRaw = desligInfo.json['DATA DEMISSÃO'] || desligInfo.json['DATA DEMISSAO'] || desligInfo.json['DATA_DEMISSAO'];\n    if (dataRaw) {\n      dataDeslig = new Date(dataRaw);\n      if (isNaN(dataDeslig.getTime())) {\n        dataDeslig = null;\n      }\n    }\n    \n    const comunicado = (desligInfo.json['COMUNICADO DE DESLIGAMENTO'] || desligInfo.json['COMUNICADO_DE_DESLIGAMENTO'] || '').toString().toUpperCase().trim();\n    desligOk = comunicado === 'OK';\n  }\n  \n  return {\n    json: {\n      ...colaborador,\n      DATA_DEMISSAO: dataDeslig ? dataDeslig.toISOString() : null,\n      DESLIGADO_OK: desligOk\n    }\n  };\n});\n\nconsole.log(`Colaboradores processados com desligamento: ${colaboradoresComDeslig.length}`);\n\nreturn colaboradoresComDeslig;"
+      },
+      "id": "2fb06f5e-0fa3-4691-ac01-fabd28651507",
+      "name": "Merge com Desligados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1104,
+        128
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Associar estado, sindicato e valores\nconst colaboradores = $input.all();\nconst diasUteisItems = $('Normalizar Colunas').all().filter(item => item.json._source === 'diasUteis');\nconst valoresSindItems = $('Normalizar Colunas').all().filter(item => item.json._source === 'sindicatoValor');\n\n// Mapeamento sindicato -> estado\nconst sindToEstado = {\n  'SINDPPD RS - SINDICATO DOS TRAB. EM PROC. DE DADOS RIO GRANDE DO SUL': 'RIO GRANDE DO SUL',\n  'SINDPD RJ - SINDICATO PROFISSIONAIS DE PROC DADOS DO RIO DE JANEIRO': 'RIO DE JANEIRO',\n  'SINDPD SP - SIND.TRAB.EM PROC DADOS E EMPR.EMPRESAS PROC DADOS ESTADO DE SP.': 'SÃO PAULO',\n  'SITEPD PR - SIND DOS TRAB EM EMPR PRIVADAS DE PROC DE DADOS DE CURITIBA E REGIAO METROPOLITANA': 'PARANÁ'\n};\n\nconst colaboradoresEnriquecidos = colaboradores.map(colaboradorItem => {\n  const colaborador = colaboradorItem.json;\n  const sindicato = colaborador.SINDICATO || '';\n  \n  // Determinar estado\n  const estado = sindToEstado[sindicato] || 'DESCONHECIDO';\n  \n  // Buscar dias úteis para o sindicato\n  const diasUteisInfo = diasUteisItems.find(item => \n    item.json.SINDICATO === sindicato\n  );\n  const diasUteisCount = diasUteisInfo ? parseInt(diasUteisInfo.json.DIAS_UTEIS || diasUteisInfo.json['DIAS_ÚTEIS'] || 0) : 0;\n  \n  // Buscar valor diário pelo estado\n  const valorInfo = valoresSindItems.find(item => {\n    const estadoItem = (item.json.ESTADO || '').toUpperCase().trim();\n    return estadoItem === estado.toUpperCase().trim();\n  });\n  const valorDiario = valorInfo ? parseFloat(valorInfo.json.VALOR || 0) : 0;\n  \n  return {\n    json: {\n      ...colaborador,\n      ESTADO: estado,\n      DIAS_UTEIS_SINDICATO: diasUteisCount,\n      VALOR_DIARIO_VR: valorDiario\n    }\n  };\n});\n\nconsole.log(`Colaboradores enriquecidos: ${colaboradoresEnriquecidos.length}`);\n\nreturn colaboradoresEnriquecidos;"
+      },
+      "id": "ab049949-31d0-4590-9ed4-32b77285e041",
+      "name": "Associar Estado e Valores",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1328,
+        128
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Calcular dias de VR baseado nas regras de negócio\nfunction calcularDias(colaborador) {\n  const diasUteis = parseInt(colaborador.DIAS_UTEIS_SINDICATO) || 0;\n  const diasFerias = parseInt(colaborador.DIAS_FERIAS) || 0;\n  const dataDesligStr = colaborador.DATA_DEMISSAO;\n  const desligOk = colaborador.DESLIGADO_OK;\n  \n  // Se tem data de desligamento\n  if (dataDesligStr) {\n    const dataDeslig = new Date(dataDesligStr);\n    \n    // Verificar se desligou em maio/2025\n    if (dataDeslig.getMonth() === 4 && dataDeslig.getFullYear() === 2025) {\n      // Regra: até dia 15 com OK = não paga\n      if (desligOk && dataDeslig.getDate() <= 15) {\n        return 0;\n      }\n      // Regra: após dia 15 com OK = proporcional\n      else if (desligOk && dataDeslig.getDate() > 15) {\n        return dataDeslig.getDate();\n      }\n    }\n    // Se não tem OK ou desligou em outro período, paga integral\n    return diasUteis;\n  }\n  \n  // Colaborador ativo: dias úteis menos férias (mínimo 0)\n  return Math.max(0, diasUteis - diasFerias);\n}\n\nconst colaboradores = $input.all();\n\nconst colaboradoresComDias = colaboradores.map(colaboradorItem => {\n  const colaborador = colaboradorItem.json;\n  const diasVR = calcularDias(colaborador);\n  \n  return {\n    json: {\n      ...colaborador,\n      DIAS_VR: diasVR\n    }\n  };\n});\n\n// Log para auditoria\nconst totalDiasVR = colaboradoresComDias.reduce((sum, item) => sum + item.json.DIAS_VR, 0);\nconsole.log(`Total de dias VR calculados: ${totalDiasVR}`);\n\nreturn colaboradoresComDias;"
+      },
+      "id": "c3ce664a-ac37-48ef-a95f-8367fc996611",
+      "name": "Calcular Dias VR",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1552,
+        128
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Calcular valores finais de VR\nconst colaboradores = $input.all();\n\nconst colaboradoresComValores = colaboradores.map(colaboradorItem => {\n  const colaborador = colaboradorItem.json;\n  \n  const diasVR = colaborador.DIAS_VR || 0;\n  const valorDiario = colaborador.VALOR_DIARIO_VR || 0;\n  \n  // Cálculos\n  const vrTotal = diasVR * valorDiario;\n  const vrEmpresa = vrTotal * 0.8;  // 80% empresa\n  const vrColaborador = vrTotal * 0.2; // 20% colaborador\n  \n  return {\n    json: {\n      ...colaborador,\n      VR_TOTAL: parseFloat(vrTotal.toFixed(2)),\n      VR_EMPRESA: parseFloat(vrEmpresa.toFixed(2)),\n      VR_COLABORADOR: parseFloat(vrColaborador.toFixed(2))\n    }\n  };\n});\n\n// Estatísticas para log\nconst totalVRGeral = colaboradoresComValores.reduce((sum, item) => sum + item.json.VR_TOTAL, 0);\nconst totalEmpresa = colaboradoresComValores.reduce((sum, item) => sum + item.json.VR_EMPRESA, 0);\nconst totalColaborador = colaboradoresComValores.reduce((sum, item) => sum + item.json.VR_COLABORADOR, 0);\n\nconsole.log(`Total VR Geral: R$ ${totalVRGeral.toFixed(2)}`);\nconsole.log(`Total Empresa (80%): R$ ${totalEmpresa.toFixed(2)}`);\nconsole.log(`Total Colaborador (20%): R$ ${totalColaborador.toFixed(2)}`);\n\nreturn colaboradoresComValores;"
+      },
+      "id": "172091c0-b516-423c-9214-93ae266a4626",
+      "name": "Calcular Valores Finais",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1760,
+        128
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Formatar dados para planilha final de acordo com o modelo\nconst colaboradores = $input.all();\nconst dataAtual = new Date();\nconst mesReferencia = `${dataAtual.getFullYear()}-${String(dataAtual.getMonth() + 1).padStart(2, '0')}`;\n\nconst dadosFinais = colaboradores.map(colaboradorItem => {\n  const colaborador = colaboradorItem.json;\n  \n  return {\n    'Matricula': colaborador.MATRICULA,\n    'Estado': colaborador.ESTADO,\n    'Sindicato do Colaborador': colaborador.SINDICATO,\n    'Dias': colaborador.DIAS_VR,\n    'Valor Diário VR': colaborador.VALOR_DIARIO_VR,\n    'Total': colaborador.VR_TOTAL,\n    'Custo empresa': colaborador.VR_EMPRESA,\n    'Desconto profissional': colaborador.VR_COLABORADOR\n  };\n});\n\n// Estatísticas resumidas\nconst estatisticas = {\n  totalColaboradores: dadosFinais.length,\n  totalVRGeral: dadosFinais.reduce((sum, item) => sum + item['Total'], 0),\n  totalEmpresa: dadosFinais.reduce((sum, item) => sum + item['Custo empresa'], 0),\n  totalColaborador: dadosFinais.reduce((sum, item) => sum + item['Desconto profissional'], 0),\n  mesReferencia: mesReferencia,\n  dataProcessamento: dataAtual.toISOString()\n};\n\nconsole.log('Estatísticas Finais:', estatisticas);\n\nreturn [{\n  json: {\n    dados: dadosFinais,\n    estatisticas: estatisticas,\n    nomeArquivo: `VR-CALCULO-FINAL-${mesReferencia}.xlsx`\n  }\n}];"
+      },
+      "id": "03d88f76-5bd3-4cbb-b40c-fbf8a0d409ce",
+      "name": "Formatar Dados Finais",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1984,
+        128
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "toFile",
+        "fileFormat": "xlsx",
+        "options": {
+          "sheetName": "VR-CALCULO-FINAL"
+        }
+      },
+      "id": "1561cd20-2207-499f-b517-bdd4703c3e31",
+      "name": "Gerar Excel",
+      "type": "n8n-nodes-base.spreadsheetFile",
+      "typeVersion": 2,
+      "position": [
+        2208,
+        128
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "{{$env.EMAIL_FROM}}",
+        "toEmail": "{{$env.EMAIL_TO}}",
+        "subject": "Automação VR/VA - Processamento Concluído",
+        "options": {}
+      },
+      "id": "c4f6980f-bf46-4c4e-9a38-cfc0aefda72c",
+      "name": "Notificar Sucesso",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        2432,
+        32
+      ],
+      "webhookId": "176343f0-4f84-4f28-9a0a-192f93720d55",
+      "credentials": {
+        "smtp": {
+          "id": "fR6SDjVj3HlmSmuA",
+          "name": "SMTP account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "={{$json.nomeArquivo}}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "root",
+          "cachedResultName": "/ (Root folder)"
+        },
+        "options": {}
+      },
+      "id": "244b4c54-c4f8-435c-814f-a6b43975a918",
+      "name": "Salvar no Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2432,
+        224
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "yRpX683BIYK9F2iF",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Tratamento de erros e notificação\nconst error = $input.first().json;\nconst errorMessage = error.message || 'Erro desconhecido';\nconst errorNode = error.node || 'Desconhecido';\nconst timestamp = new Date().toISOString();\n\nconsole.error(`Erro no workflow VR/VA: ${errorMessage}`);\nconsole.error(`Node com erro: ${errorNode}`);\nconsole.error(`Timestamp: ${timestamp}`);\n\n        return [{\n  json: {\n    assunto: '🚨 ERRO - Automação VR/VA Falhou',\n    mensagem: `Falha no processamento da automação VR/VA:\n\n**Detalhes do Erro:**\n- Mensagem: ${errorMessage}\n- Node: ${errorNode}\n- Timestamp: ${timestamp}\n\n**Ação Necessária:**\nVerifique os logs do workflow e corrija o problema antes da próxima execução.`,\n    timestamp: timestamp,\n    tipoAlerta: 'erro'\n  }\n}];"
+      },
+      "id": "207d830f-52d8-4241-ad9a-0e2ce787525c",
+      "name": "Tratamento de Erros",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        944,
+        432
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "{{$env.EMAIL_FROM}}",
+        "toEmail": "{{$env.EMAIL_TO_ADMIN}}",
+        "subject": "={{$json.assunto}}",
+        "options": {}
+      },
+      "id": "62e59a72-25f6-4db9-a2cb-a1025e265a80",
+      "name": "Notificar Erro por Email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1168,
+        432
+      ],
+      "webhookId": "075f44e9-8057-4d32-a5de-1427331285d3",
+      "credentials": {
+        "smtp": {
+          "id": "cASEkZJkLHhZ1ZLY",
+          "name": "SMTP account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Carregar ATIVOS",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Carregar AFASTAMENTOS",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Carregar ADMISSAO",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Carregar EXTERIOR",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Carregar Base Dias Úteis",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Carregar Base Sindicato Valor",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Normalizar Colunas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Carregar ATIVOS": {
+      "main": [
+        [
+          {
+            "node": "Normalizar Colunas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Carregar AFASTAMENTOS": {
+      "main": [
+        [
+          {
+            "node": "Normalizar Colunas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Carregar ADMISSAO": {
+      "main": [
+        [
+          {
+            "node": "Normalizar Colunas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Carregar EXTERIOR": {
+      "main": [
+        [
+          {
+            "node": "Normalizar Colunas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Carregar Base Dias Úteis": {
+      "main": [
+        [
+          {
+            "node": "Normalizar Colunas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Carregar Base Sindicato Valor": {
+      "main": [
+        [
+          {
+            "node": "Normalizar Colunas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalizar Colunas": {
+      "main": [
+        [
+          {
+            "node": "Identificar Exclusões",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Identificar Exclusões": {
+      "main": [
+        [
+          {
+            "node": "Filtrar Base Principal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filtrar Base Principal": {
+      "main": [
+        [
+          {
+            "node": "Merge com Férias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge com Férias": {
+      "main": [
+        [
+          {
+            "node": "Merge com Desligados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge com Desligados": {
+      "main": [
+        [
+          {
+            "node": "Associar Estado e Valores",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Associar Estado e Valores": {
+      "main": [
+        [
+          {
+            "node": "Calcular Dias VR",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calcular Dias VR": {
+      "main": [
+        [
+          {
+            "node": "Calcular Valores Finais",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calcular Valores Finais": {
+      "main": [
+        [
+          {
+            "node": "Formatar Dados Finais",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formatar Dados Finais": {
+      "main": [
+        [
+          {
+            "node": "Gerar Excel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gerar Excel": {
+      "main": [
+        [
+          {
+            "node": "Notificar Sucesso",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Salvar no Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tratamento de Erros": {
+      "main": [
+        [
+          {
+            "node": "Notificar Erro por Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "112248cc-6317-422d-976a-f8ed97b1775c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "14636bd4840528e11401e80ad7c38e50737a668c0416c57711f4c9e248bb111f"
+  },
+  "id": "gmzwIt1peDcXo5wK",
+  "tags": [
+    {
+      "createdAt": "2025-08-27T19:48:41.860Z",
+      "updatedAt": "2025-08-27T19:48:41.860Z",
+      "id": "wR5oWvcbwpWwgxY8",
+      "name": "VR/VA Automation"
+    }
+  ]
+}
